@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "891207561613",
+    "project_id": "shipbattle-1609105936933",
+    "storage_bucket": "shipbattle-1609105936933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891207561613:android:0ef05abe74abbcde9b8dc4",
+        "android_client_info": {
+          "package_name": "com.example.shipbattle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891207561613-6q57fvvf33mhnuodcfinv3hqioie4hqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shipbattle",
+            "certificate_hash": "8f53d76eae9edff6ef4a98e86d2e37ece64369b6"
+          }
+        },
+        {
+          "client_id": "891207561613-7gfrgdan5v90n5tfitqacksktn72mu2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGOb-fdzIXW1qTBqmnpOTh6n9855XpgUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891207561613-7gfrgdan5v90n5tfitqacksktn72mu2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

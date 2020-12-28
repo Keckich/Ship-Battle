@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccountActivity">
+
+
+    <ImageView
+        android:id="@+id/imageViewPhoto"
+        android:layout_width="256dp"
+        android:layout_height="245dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewNameTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textViewIdTitle"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="339dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="23dp"
+        android:text="@string/Id"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNameTitle"
+        app:layout_constraintEnd_toStartOf="@+id/textViewId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewNameTitle"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Name"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmailTitle"
+        app:layout_constraintEnd_toStartOf="@+id/textViewName"
+        app:layout_constraintStart_toEndOf="@+id/imageViewPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/textViewIdTitle" />
+
+    <TextView
+        android:id="@+id/textViewEmailTitle"
+        android:layout_width="62dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="339dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="111dp"
+        android:text="@string/Email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameTitle" />
+
+    <TextView
+        android:id="@+id/textViewId"
+        android:layout_width="347dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="23dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textViewName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewIdTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="300dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="169dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewEdit"
+        app:layout_constraintStart_toEndOf="@+id/textViewNameTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewId" />
+
+    <TextView
+        android:id="@+id/textViewEmail"
+        android:layout_width="347dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="111dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewEmailTitle"
+         />
+
+    <ImageView
+        android:id="@+id/imageViewEdit"
+        android:layout_width="41dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewId"
+        app:srcCompat="@drawable/ic_editor"
+        tools:ignore="VectorDrawableCompat" />
+</androidx.constraintlayout.widget.ConstraintLayout>

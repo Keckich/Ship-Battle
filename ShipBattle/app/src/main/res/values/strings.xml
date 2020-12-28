@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ShipBattle</string>
+    <string name="Play">Create new game</string>
+    <string name="Find">Find existing</string>
+    <string name="Account">Account</string>
+    <string name="Statistics">Statistics</string>
+    <string name="SignOut">Sign out</string>
+    <string name="Id">Id:</string>
+    <string name="Name">Name:</string>
+    <string name="Email">E-mail:</string>
+    <string name="IdToken">891207561613-sfgnbea7svsipvji1l0tlk7m401f4d1j.apps.googleusercontent.com</string>
+    <string name="MsgEdit">Enter new name:</string>
+    <string name="OK">OK</string>
+    <string name="Cancel">Cancel</string>
+    <string name="OR">OR</string>
+</resources>

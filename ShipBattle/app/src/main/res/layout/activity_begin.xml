@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BeginActivity">
+
+    <Button
+        android:id="@+id/buttonAccount"
+        android:layout_width="164dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:text="@string/Account"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStatistics"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOr" />
+
+    <Button
+        android:id="@+id/buttonCreate"
+        android:layout_width="164dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginEnd="26dp"
+        android:text="@string/Play"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOr"
+        app:layout_constraintEnd_toStartOf="@+id/textViewOr"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonStatistics"
+        android:layout_width="164dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="29dp"
+        android:text="@string/Statistics"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLobbyId" />
+
+    <Button
+        android:id="@+id/button_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="27dp"
+        android:text="@string/SignOut"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCopy"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewOr"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="23dp"
+        android:text="@string/OR"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAccount"
+        app:layout_constraintEnd_toStartOf="@+id/editTextFind"
+        app:layout_constraintStart_toEndOf="@+id/buttonCreate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextFind"
+        android:layout_width="164dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="26dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewOr"
+        app:layout_constraintEnd_toStartOf="@+id/buttonFind"
+        app:layout_constraintStart_toEndOf="@+id/textViewOr" />
+
+    <Button
+        android:id="@+id/buttonFind"
+        android:layout_width="164dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="171dp"
+        android:text="@string/Find"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editTextFind"
+        app:layout_constraintTop_toBottomOf="@+id/button_sign_out" />
+
+
+    <TextView
+        android:id="@+id/textViewLobbyId"
+        android:layout_width="290dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="163dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/buttonStatistics"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewCopy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageViewCopy"
+        android:layout_width="28dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="285dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewLobbyId"
+        app:layout_constraintEnd_toStartOf="@+id/button_sign_out"
+        app:layout_constraintStart_toEndOf="@+id/textViewLobbyId"
+        app:layout_constraintTop_toTopOf="@+id/textViewLobbyId"
+        app:srcCompat="@drawable/ic_copy"
+        tools:ignore="VectorDrawableCompat" />
+</androidx.constraintlayout.widget.ConstraintLayout>
