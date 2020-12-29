@@ -40,7 +40,7 @@ import java.io.ByteArrayOutputStream;
 public class AccountActivity extends AppCompatActivity {
     TextView name, id, email;
     ImageView photo, editor;
-    Button btnChangePhoto;
+    Button btnChangePhoto, btnGravatar;
     StorageReference storageReference;
     FirebaseUser user;
 
@@ -55,6 +55,7 @@ public class AccountActivity extends AppCompatActivity {
         email = findViewById(R.id.textViewEmail);
         id = findViewById(R.id.textViewId);
         btnChangePhoto = findViewById(R.id.buttonChangePhoto);
+        btnGravatar = findViewById(R.id.buttonGravatar);
         storageReference = FirebaseStorage.getInstance().getReference("images");
 
         user = FirebaseAuth.getInstance().getCurrentUser();
@@ -118,6 +119,26 @@ public class AccountActivity extends AppCompatActivity {
             }
         });
 
+        btnGravatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String hash = Gravatar.md5Hex(user.getEmail());
+                String gravatarUrl = "https://www.gravatar.com/avatar/" + hash + "?s=204&d=404";
+                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                        .setPhotoUri(Uri.parse(gravatarUrl))
+                        .build();
+                user.updateProfile(profileUpdates)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Glide.with(AccountActivity.this).load(String.valueOf(gravatarUrl)).into(photo);
+                                }
+                            }
+                        });
+            }
+        });
+
     }
 
     @Override
@@ -158,6 +179,7 @@ public class AccountActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Uri> task) {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
+
                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                             .setPhotoUri(downloadUri)
                             .build();
