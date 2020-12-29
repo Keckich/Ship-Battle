@@ -23,6 +23,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -36,7 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class BeginActivity extends AppCompatActivity implements ValueEventListener {
+public class BeginActivity extends AppCompatActivity {
     Button btnAccount, sign_out, btnCreate, btnFind;
     GoogleSignInClient mGoogleSignInClient;
     EditText editFind;
@@ -52,7 +53,7 @@ public class BeginActivity extends AppCompatActivity implements ValueEventListen
         lobbies = new ArrayList<>();
         lobbyReferences = new ArrayList<>();
 
- /*      DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
                 .child("Lobby");
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
@@ -82,7 +83,29 @@ public class BeginActivity extends AppCompatActivity implements ValueEventListen
 
             }
         };
-        databaseReference.addChildEventListener(childEventListener);*/
+        databaseReference.addChildEventListener(childEventListener);
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                //Lobby lobby = (lobbies.get(lobbies.size() - 1));
+
+                Log.e("inDataChanged", "na meste");
+                String opponentId = snapshot.getValue(String.class);
+                //Log.e("lobby != null", "lobby!=null");
+                if (opponentId != null) {
+                    Log.e("oppoentId!=null", opponentId);
+                    Intent intent = new Intent(BeginActivity.this, GameActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -109,9 +132,15 @@ public class BeginActivity extends AppCompatActivity implements ValueEventListen
                 DatabaseReference myRef = database.getReference("Lobby").push();
                 String lobbyId = myRef.getKey();
                 Lobby lobby = new Lobby(lobbyId, user.getUid());
-                myRef.setValue(lobby);
+                myRef.setValue(lobby).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        myRef.child("idOpponent").addValueEventListener(valueEventListener);
+                    }
+                });
                 textViewLobbyId.setText(lobbyId);
                 imageViewCopy.setVisibility(View.VISIBLE);
+                //databaseReference.addValueEventListener(valueEventListener);
             }
         });
         btnFind = findViewById(R.id.buttonFind);
@@ -165,25 +194,4 @@ public class BeginActivity extends AppCompatActivity implements ValueEventListen
                 });
     }
 
-    /*@Override
-    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-        lobbies.add(snapshot.getValue(Lobby.class));
-        lobbyReferences.add(snapshot.getRef());
-        Log.i("added", "da");
-    }
-    */
-
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-        String opponentId = snapshot.getValue(String.class);
-        if (opponentId != null) {
-            Intent intent = new Intent(BeginActivity.this, GameActivity.class);
-            startActivity(intent);
-        }
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
 }
