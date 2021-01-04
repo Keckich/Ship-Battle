@@ -1,11 +1,13 @@
 package com.example.shipbattle;
 
 public class Lobby {
-    private final String id;
-    private final String idCreator;
+    private String id;
+    private String idCreator;
     private String idOpponent;
 
-    Lobby(String id, String idCreator) {
+    private Lobby() {}
+
+    public Lobby(String id, String idCreator) {
         this.id = id;
         this.idCreator = idCreator;
     }

@@ -4,6 +4,8 @@ public class Cell {
     int posX, posY;
     CellCondition cellCondition;
 
+    Cell() {}
+
     Cell(int posX, int posY, CellCondition cellCondition) {
         this.posX = posX;
         this.posY = posY;

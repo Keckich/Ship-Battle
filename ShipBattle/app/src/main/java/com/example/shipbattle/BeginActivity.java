@@ -92,10 +92,16 @@ public class BeginActivity extends AppCompatActivity {
 
                 Log.e("inDataChanged", "na meste");
                 String opponentId = snapshot.getValue(String.class);
+                String creatorId = snapshot.getRef().getParent().child("idCreator").toString();
+                String lobbyId = snapshot.getRef().getParent().getKey();
                 //Log.e("lobby != null", "lobby!=null");
                 if (opponentId != null) {
                     Log.e("oppoentId!=null", opponentId);
                     Intent intent = new Intent(BeginActivity.this, GameActivity.class);
+                    intent.putExtra("opponentId", opponentId);
+                    intent.putExtra("creatorId", creatorId);
+                    intent.putExtra("lobbyId", lobbyId);
+
                     startActivity(intent);
                 }
 
@@ -154,10 +160,13 @@ public class BeginActivity extends AppCompatActivity {
                 for (int i = 0; i < lobbies.size(); i++) {
                     Log.i("lobbyId", lobbies.get(i).getId());
                     if (lobbies.get(i).getId().equals(editFindText)) {
-                        Log.i("if", "мы в ифе блять");
+
                         lobbies.get(i).setIdOpponent(user.getUid());
                         lobbyReferences.get(i).setValue(lobbies.get(i));
                         Intent intent = new Intent(BeginActivity.this, GameActivity.class);
+                        intent.putExtra("opponentId", lobbies.get(i).getIdOpponent());
+                        intent.putExtra("creatorId", lobbies.get(i).getIdCreator());
+                        intent.putExtra("lobbyId", lobbies.get(i).getId());
                         startActivity(intent);
                         break;
                     }
